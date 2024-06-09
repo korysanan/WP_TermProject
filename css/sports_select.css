@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    display: block; /* 수정된 부분 */
+    margin: 0;
+    padding: 0;
+}
+
+section{
+    display: block; /* 각 요소를 block으로 설정 */
+    width: 100%; /* 전체 너비 사용 */
+    text-align: center; /* Center align text in the section */
+}
+
+h1 {
+    font-size: 2.5em; /* Increase font size */
+    text-align: center; /* Center align text */
+    margin: 20px 0; /* Add some margin for spacing */
+}
+
+.board-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px; /* Adjusted for three items per row */
+    justify-content: center; /* Center the items horizontally */
+    margin: 0 auto; /* Center the container */
+}
+
+.board {
+    flex: 1 1 calc(33.33% - 20px); /* Three items per row */
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.board img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.board h2 {
+    font-size: 1.2em;
+    margin: 10px 0 0;
+}
+
+.board a {
+    text-decoration: none;
+    color: inherit;
+}

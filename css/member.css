@@ -1,0 +1,138 @@
+/* 추가 CSS: 크로스 브라우저 호환성 개선 */
+input, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#main_content {
+    position: relative;
+    width: 80%;
+    max-width: 800px; /* 최대 너비 */
+    margin: 0 auto;
+    padding: 60px 20px; /* padding을 늘려서 세로 공간 추가 */
+    background: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* 가입 양식 폼 */
+#join_box {
+    width: 100%;
+    max-width: 500px; /* 최대 너비 */
+    margin: 0 auto;
+    padding: 20px 0; /* padding을 추가하여 세로 공간 확보 */
+}
+
+#join_box h2 {
+    border-bottom: solid 1px #dddddd;
+    padding-bottom: 10px;
+    margin-bottom: 40px; /* margin을 늘려서 세로 공간 추가 */
+    font-size: 24px;
+}
+
+#join_box .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px; /* margin을 늘려서 세로 공간 추가 */
+    position: relative; /* Position relative to position eye icon */
+}
+
+#join_box .form-group label {
+    width: 120px; /* 레이블 너비 */
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#join_box .form-group input {
+    flex: 1;
+    padding: 10px; /* padding을 늘려서 input 필드의 세로 공간 추가 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* 박스 모델 일관성 유지 */
+}
+
+#join_box .form-group .col3 {
+    margin-left: 10px;
+}
+
+#join_box .form-group.email select {
+    width: 30%; /* 선택창의 너비를 줄임 */
+    display: inline-block;
+    padding: 10px; /* padding 추가 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* 박스 모델 일관성 유지 */
+}
+
+#join_box .form-group.email input[name="email2_custom"] {
+    width: calc(50% - 10px); /* 선택창의 너비와 맞춤 */
+    padding: 10px; /* padding 추가 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: none;
+    box-sizing: border-box; /* 박스 모델 일관성 유지 */
+}
+
+#join_box .bottom_line {
+    margin: 30px 0; /* margin을 늘려서 세로 공간 추가 */
+    border-bottom: solid 1px #cccccc;
+}
+
+#join_box .buttons {
+    text-align: right;
+    margin-top: 30px; /* margin을 늘려서 세로 공간 추가 */
+}
+
+.custom-button {
+    background-color: #2e7503; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.signup-button {
+    background-color: #0d00ff; /* Blue */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#join_box .buttons {
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.fas {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
+
+.password-hint {
+    display: none;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888;
+}

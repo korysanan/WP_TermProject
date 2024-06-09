@@ -1,0 +1,81 @@
+.match {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+}
+.team {
+    padding: 5px 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.team img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+.selected {
+    background-color: #d1e7ff; /* Light blue color */
+}
+.selected:nth-child(2) {
+    background-color: #ffd1dc; /* Light pink color */
+}
+.vs-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+.vs {
+    font-weight: bold;
+}
+.date-time {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+.header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.subheader {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+.spacing {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 20px auto;
+    display: block;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #45a049;
+}
