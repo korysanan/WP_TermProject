@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>esports Schedule</title>
+    <title>SportsHub</title>
     <link rel="stylesheet" href="./css/match_cal.css">
     <link rel="stylesheet" type="text/css" href="./css/common.css">
 </head>

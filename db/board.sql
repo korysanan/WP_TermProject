@@ -9,5 +9,6 @@ create table board (
    file_name char(40),
    file_type char(40),
    file_copied char(40),
+   category int(11) not null default 0,
    primary key(num)
 );

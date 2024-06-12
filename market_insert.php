@@ -19,13 +19,14 @@ if (!$userid) {
 $subject = $_POST["subject"];
 $content = $_POST["content"];
 $category = $_POST["category"];
+$price = $_POST["price"];
 
 $subject = htmlspecialchars($subject, ENT_QUOTES);
 $content = htmlspecialchars($content, ENT_QUOTES);
 
 $regist_day = date("Y-m-d (H:i)");  // 현재의 '년-월-일-시-분'을 저장
 
-$upload_dir = __DIR__ . '/data/';
+$upload_dir = './data/';
 
 $upfile_name = $_FILES["upfile"]["name"];
 $upfile_tmp_name = $_FILES["upfile"]["tmp_name"];
@@ -39,6 +40,7 @@ if ($upfile_name && !$upfile_error) {
     $file_ext = $file[1];
 
     $new_file_name = date("Y_m_d_H_i_s");
+    $new_file_name = $new_file_name;
     $copied_file_name = $new_file_name . "." . $file_ext;
     $uploaded_file = $upload_dir . $copied_file_name;
 
@@ -53,10 +55,9 @@ if ($upfile_name && !$upfile_error) {
     }
 
     if (!move_uploaded_file($upfile_tmp_name, $uploaded_file)) {
-        $error_message = error_get_last()['message'];
         echo("
             <script>
-            alert('파일을 지정한 디렉토리에 복사하는데 실패했습니다: $error_message');
+            alert('파일을 지정한 디렉토리에 복사하는데 실패했습니다.');
             history.go(-1)
             </script>
         ");
@@ -70,9 +71,9 @@ if ($upfile_name && !$upfile_error) {
 
 $con = mysqli_connect("localhost", "user", "12345", "TermProject");
 
-$sql = "INSERT INTO board (id, name, subject, content, regist_day, hit, file_name, file_type, file_copied, category) ";
+$sql = "INSERT INTO market (id, name, subject, content, regist_day, hit, file_name, file_type, file_copied, category, price) ";
 $sql .= "VALUES('$userid', '$username', '$subject', '$content', '$regist_day', 0, ";
-$sql .= "'$upfile_name', '$upfile_type', '$copied_file_name', '$category')";
+$sql .= "'$upfile_name', '$upfile_type', '$copied_file_name', '$category', '$price')";
 mysqli_query($con, $sql);  // $sql 에 저장된 명령 실행
 
 // 포인트 부여하기
@@ -90,7 +91,7 @@ mysqli_close($con);                // DB 연결 끊기
 
 echo "
    <script>
-    location.href = 'board_list.php';
+    location.href = 'market_list.php';
    </script>
 ";
 ?>

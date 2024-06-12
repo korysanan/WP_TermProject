@@ -34,8 +34,8 @@
     <?php include "header.php";?>
 </header>  
 <?php
-	if (!$userid )
-	{
+    session_start();
+	if (!isset($_SESSION["userid"])) {
 		echo("<script>
 				alert('로그인 후 이용해주세요!');
 				history.go(-1);
@@ -43,6 +43,9 @@
 			");
 		exit;
 	}
+
+    $userid = $_SESSION["userid"];
+    $receiver_id = isset($_GET["to"]) ? $_GET["to"] : "";
 ?>
 <section>
    	<div id="message_box">
@@ -53,7 +56,7 @@
 				<li><span><a href="message_box.php?mode=rv">수신 쪽지함 </a></span></li>
 				<li><span><a href="message_box.php?mode=send">송신 쪽지함</a></span></li>
 		</ul>
-	    <form  name="message_form" method="post" action="message_insert.php?send_id=<?=$userid?>">
+	    <form name="message_form" method="post" action="message_insert.php?send_id=<?=$userid?>">
 	    	<div id="write_msg">
 	    	    <ul>
 				<li>
@@ -62,7 +65,7 @@
 				</li>	
 				<li>
 					<span class="col1">수신 아이디 : </span>
-					<span class="col2"><input name="rv_id" type="text"></span>
+					<span class="col2"><input name="rv_id" type="text" value="<?=$receiver_id?>"></span>
 				</li>	
 	    		<li>
 	    			<span class="col1">제목 : </span>

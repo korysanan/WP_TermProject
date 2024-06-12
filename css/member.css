@@ -52,6 +52,19 @@ input, select {
     box-sizing: border-box; /* 박스 모델 일관성 유지 */
 }
 
+#join_box .form-group .col2 {
+    display: flex;
+    align-items: center;
+}
+
+#join_box .form-group .col2 input {
+    flex: 1;
+}
+
+#join_box .form-group .col2 i {
+    margin-left: 10px;
+}
+
 #join_box .form-group .col3 {
     margin-left: 10px;
 }

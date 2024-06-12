@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>2023-24 KBL 순위</title>
+    <title>SportsHub</title>
     <link rel="stylesheet" type="text/css" href="./css/match_rank.css">
     <link rel="stylesheet" type="text/css" href="./css/common.css">
 </head>

@@ -1,0 +1,58 @@
+/* 메인 콘텐트 */
+#main_content { position: relative; width: 960px; height: 600px; margin: 0 auto; justify-content: center; text-align: center;}
+
+/* 영수증 테이블 */
+.receipt-table {
+    width: 60%;
+    margin: 0 auto 20px auto;
+    border-collapse: collapse;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: left;
+}
+
+.receipt-table th, .receipt-table td {
+    border: 1px solid #dddddd;
+    padding: 12px 15px;
+}
+
+.receipt-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.receipt-table td {
+    background-color: #ffffff;
+}
+
+.receipt-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.receipt-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#donate_btn button{
+    margin: 40px;
+    background-color: #8affaf;
+    border: 1px solid #8affaf;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 5px 180px; 
+    cursor: pointer; 
+    font-size: 45px;
+    border-top-right-radius: 100px;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+#donate_btn button:hover { 
+    background-color: rgb(166, 255, 0);
+    border: 2px solid #8affaf;
+    color: #000000;
+}

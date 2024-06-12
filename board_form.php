@@ -21,6 +21,15 @@
       }
       document.board_form.submit();
    }
+
+   function prependCategory() {
+       var categorySelect = document.getElementById("category");
+       var category = categorySelect.options[categorySelect.selectedIndex].text;
+       var subject = document.getElementById("subject");
+       if (categorySelect.value != "0") {
+           subject.value = "[" + category + "] " + subject.value;
+       }
+   }
 </script>
 </head>
 <body> 
@@ -39,8 +48,22 @@
 					<span class="col2"><?=$username?></span>
 				</li>		
 	    		<li>
+	    			<span class="col1">카테고리 : </span>
+	    			<span class="col2">
+                        <select id="category" name="category">
+                            <option value="0">카테고리 선택</option>
+                            <option value="1">야구</option>
+                            <option value="2">축구</option>
+                            <option value="3">농구</option>
+                            <option value="4">배구</option>
+                            <option value="5">e스포츠</option>
+                            <option value="6">기타</option>
+                        </select>
+                    </span>
+	    		</li>
+	    		<li>
 	    			<span class="col1">제목 : </span>
-	    			<span class="col2"><input name="subject" type="text"></span>
+	    			<span class="col2"><input id="subject" name="subject" type="text"></span>
 	    		</li>	    	
 	    		<li id="text_area">	
 	    			<span class="col1">내용 : </span>
@@ -54,7 +77,7 @@
 			    </li>
 	    	    </ul>
 	    	<ul class="buttons">
-				<li><button type="button" onclick="check_input()">완료</button></li>
+				<li><button type="button" onclick="prependCategory(); check_input()">완료</button></li>
 				<li><button type="button" onclick="location.href='board_list.php'">목록</button></li>
 			</ul>
 	    </form>

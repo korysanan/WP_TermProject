@@ -122,7 +122,7 @@
 
    function showPasswordHint(input) {
        if (input.value === "") {
-           input.placeholder = "8자 이상, 2개이상 조합";
+           input.placeholder = "8자 이상, 대/소/특수 문자 및 숫자 2개이상 조합";
        }
    }
 
@@ -155,7 +155,7 @@
                 </div>
                 <div class="form-group">
                     <label for="pass">비밀번호</label>
-                    <input type="password" name="pass" id="pass" placeholder="8자 이상, 2개이상 조합" onfocus="hidePasswordHint(this)" onblur="showPasswordHint(this)">
+                    <input type="password" name="pass" id="pass" placeholder="8자 이상, 대/소/특수 문자 및 숫자 2개이상 조합" onfocus="hidePasswordHint(this)" onblur="showPasswordHint(this)">
                     <i class="fas fa-eye" id="togglePass" onclick="togglePasswordVisibility('pass', 'togglePass')"></i>
                 </div>
                 <div class="form-group">

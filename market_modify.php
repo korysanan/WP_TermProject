@@ -4,10 +4,12 @@
 
     $subject = $_POST["subject"];
     $content = $_POST["content"];
+    $price = $_POST["price"];
     $category = $_POST["category"];
 
     $subject = htmlspecialchars($subject, ENT_QUOTES);
     $content = htmlspecialchars($content, ENT_QUOTES);
+    $price = htmlspecialchars($price, ENT_QUOTES);
 
     $upload_dir = './data/';
 
@@ -32,7 +34,7 @@
         if ($upfile_size > 1000000) {
             echo("
                 <script>
-                alert('업로드 파일 크기가 지정된 용량(1MB)을 초과합니다!<br>파일 크기를 체크해주세요!');
+                alert('업로드 파일 크기가 지정된 용량(1MB)을 초과합니다! 파일 크기를 체크해주세요!');
                 history.go(-1)
                 </script>
             ");
@@ -49,11 +51,11 @@
             exit;
         }
 
-        $sql = "UPDATE board SET subject='$subject', content='$content', category='$category', 
+        $sql = "UPDATE market SET subject='$subject', content='$content', price='$price', category='$category', 
                 file_name='$upfile_name', file_type='$upfile_type', file_copied='$copied_file_name' 
                 WHERE num=$num";
     } else {
-        $sql = "UPDATE board SET subject='$subject', content='$content', category='$category' WHERE num=$num";
+        $sql = "UPDATE market SET subject='$subject', content='$content', price='$price', category='$category' WHERE num=$num";
     }
 
     mysqli_query($con, $sql);
@@ -62,7 +64,7 @@
 
     echo "
           <script>
-              location.href = 'board_list.php?page=$page';
+              location.href = 'market_list.php?page=$page';
           </script>
       ";
 ?>

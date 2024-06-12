@@ -4,22 +4,25 @@
 <meta charset="utf-8">
 <title>SportsHub</title>
 <link rel="stylesheet" type="text/css" href="./css/common.css">
-<link rel="stylesheet" type="text/css" href="./css/board.css">
+<link rel="stylesheet" type="text/css" href="./css/market.css">
 <script>
   function check_input() {
-      if (!document.board_form.subject.value)
-      {
+      if (!document.market_form.subject.value) {
           alert("제목을 입력하세요!");
-          document.board_form.subject.focus();
+          document.market_form.subject.focus();
           return;
       }
-      if (!document.board_form.content.value)
-      {
+      if (!document.market_form.content.value) {
           alert("내용을 입력하세요!");    
-          document.board_form.content.focus();
+          document.market_form.content.focus();
           return;
       }
-      document.board_form.submit();
+      if (!document.market_form.price.value) {
+          alert("가격을 입력하세요!");
+          document.market_form.price.focus();
+          return;
+      }
+      document.market_form.submit();
   }
 
   function prependCategory() {
@@ -28,14 +31,13 @@
       var subject = document.getElementById("subject");
       var subjectValue = subject.value;
 
-      // 기존의 카테고리 태그 제거
       var regex = /^\[.*?\]\s*/;
       subjectValue = subjectValue.replace(regex, "");
 
       if (categorySelect.value != "0") {
           subject.value = "[" + category + "] " + subjectValue;
       } else {
-          subject.value = subjectValue; // Remove any existing category tags if "카테고리 선택" is selected
+          subject.value = subjectValue;
       }
   }
 </script>
@@ -47,23 +49,24 @@
 <section>
     <div id="board_box">
         <h3 id="board_title">
-                게시글 수정하기
+            장터 > 글 수정하기
         </h3>
 <?php
     $num  = $_GET["num"];
     $page = $_GET["page"];
     
     $con = mysqli_connect("localhost", "user", "12345", "TermProject");
-    $sql = "select * from board where num=$num";
+    $sql = "select * from market where num=$num";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
     $name       = $row["name"];
     $subject    = $row["subject"];
-    $content    = $row["content"];        
+    $content    = $row["content"];
+    $price      = $row["price"];
     $file_name  = $row["file_name"];
     $category   = $row["category"];
 ?>
-        <form  name="board_form" method="post" action="board_modify.php?num=<?=$num?>&page=<?=$page?>" enctype="multipart/form-data">
+        <form  name="market_form" method="post" action="market_modify.php?num=<?=$num?>&page=<?=$page?>" enctype="multipart/form-data">
              <ul id="board_form">
                 <li>
                     <span class="col1">이름 : </span>
@@ -84,6 +87,10 @@
                     </span>
                 </li>
                 <li>
+                    <span class="col1">가격(₩) : </span>
+                    <span class="col2"><input id="price" name="price" type="number" min="0" step="1" value="<?=$price?>"></span>
+                </li>
+                <li>
                     <span class="col1">제목 : </span>
                     <span class="col2"><input id="subject" name="subject" type="text" value="<?=$subject?>"></span>
                 </li>          
@@ -97,10 +104,10 @@
                     <span class="col1"> 첨부 파일 : </span>
                     <span class="col2"><?=$file_name?></span>
                 </li>
-                </ul>
+            </ul>
             <ul class="buttons">
                 <li><button type="button" onclick="prependCategory(); check_input()">수정하기</button></li>
-                <li><button type="button" onclick="location.href='board_list.php'">목록</button></li>
+                <li><button type="button" onclick="location.href='market_list.php'">목록</button></li>
             </ul>
         </form>
     </div> <!-- board_box -->
